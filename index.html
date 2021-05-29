@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Unicode converter</title>
+    <link rel="stylesheet" href="bootstrap.min.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="container-fluid">
+        <h3>Tamil Unicode Converter</h3>
+        <span class="TableText"> Thanglish </span>
+        <div class="row">
+          <textarea
+            id="textArea0"
+            class="form-control"
+            onkeyup="convertToUnicode();convertToBamini();"
+            onclick="convertToUnicode();convertToBamini();"
+            onselect="convertToUnicode();convertToBamini();"
+            name="textArea0"
+            rows="6"
+          ></textarea>
+          <div class="row" id="button-group">
+            <a
+              class="btn btn-info col-md-2"
+              onclick="showLettersTable()"
+              href="#"
+              role="button"
+            >
+              View Characters
+            </a>
+            &nbsp;
+            <button
+              class="btn btn-warning col-md-1"
+              onclick="resetArea('textArea0')"
+            >
+              Reset
+            </button>
+            &nbsp;
+            <button
+              class="btn btn-primary col-md-1"
+              onclick="copyit('textArea0');"
+            >
+              Copy
+            </button>
+          </div>
+        </div>
+        <br />
+        <span class="TableText">
+          Unicode (<font face="Arial">யுனிகோட்</font>)
+        </span>
+        <div class="row">
+          <textarea
+            id="textArea1"
+            class="form-control"
+            onkeyup="convertToBamini();"
+            onclick="convertToBamini();"
+            onselect="convertToBamini();"
+            name="textArea1"
+            rows="6"
+          ></textarea>
+          <div class="row" id="button-group">
+            <button
+              class="btn btn-warning col-md-1"
+              onclick="resetArea('textArea1')"
+            >
+              Reset
+            </button>
+            &nbsp;
+            <button
+              class="btn btn-primary col-md-1"
+              onclick="copyit('textArea1');"
+            >
+              Copy
+            </button>
+          </div>
+        </div>
+        <br />
+        <span class="TableText">
+          Bamini (<font face="Bamini">ghkpdp</font>)
+        </span>
+        <div class="row">
+          <textarea
+            id="textArea2"
+            name="textArea2"
+            class="form-control"
+            rows="6"
+          ></textarea>
+          <div class="row" id="button-group">
+            <br />
+            <button
+              class="btn btn-warning col-md-1"
+              onclick="resetArea('textArea2')"
+            >
+              Reset
+            </button>
+            &nbsp;
+            <button
+              class="btn btn-primary col-md-1"
+              onclick="copyit('textArea2');"
+            >
+              Copy
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="letters-table">
+      <table class="table table-bordered">
+        <tr scope="row">
+          <td>ஃ</td>
+          <td>அ - a</td>
+          <td>ஆ - aa</td>
+          <td>இ - i</td>
+          <td>ஈ - ii</td>
+          <td>உ - u</td>
+          <td>ஊ - uu</td>
+          <td>எ - e</td>
+          <td>ஏ - ee</td>
+          <td>ஐ - ai</td>
+          <td>ஒ - o</td>
+          <td>ஓ - oo</td>
+          <td>ஔ - au</td>
+        </tr>
+        <tr scope="row">
+          <td>க்</td>
+          <td>க - ka</td>
+          <td>கா - kaa</td>
+          <td>கி - ki</td>
+          <td>கீ - kii</td>
+          <td>கு - ku</td>
+          <td>கூ - kuu</td>
+          <td>கெ - ke</td>
+          <td>கே - kee</td>
+          <td>கை - kai</td>
+          <td>கொ - ko</td>
+          <td>கோ - koo</td>
+          <td>கௌ</td>
+        </tr>
+        <tr scope="row">
+          <td>ங்</td>
+          <td>ங</td>
+          <td>ஙா</td>
+          <td>ஙி</td>
+          <td>ஙீ</td>
+          <td>ஙு</td>
+          <td>ஙூ</td>
+          <td>ஙெ</td>
+          <td>ஙே</td>
+          <td>ஙை</td>
+          <td>ஙொ</td>
+          <td>ஙோ</td>
+          <td>ஙௌ</td>
+        </tr>
+        <tr scope="row">
+          <td>ச்</td>
+          <td>ச</td>
+          <td>சா</td>
+          <td>சி</td>
+          <td>சீ</td>
+          <td>சு</td>
+          <td>சூ</td>
+          <td>செ</td>
+          <td>சே</td>
+          <td>சை</td>
+          <td>சொ</td>
+          <td>சோ</td>
+          <td>சௌ</td>
+        </tr>
+        <tr scope="row">
+          <td>ஞ்</td>
+          <td>ஞ</td>
+          <td>ஞா</td>
+          <td>ஞி</td>
+          <td>ஞீ</td>
+          <td>ஞு</td>
+          <td>ஞூ</td>
+          <td>ஞெ</td>
+          <td>ஞே</td>
+          <td>ஞை</td>
+          <td>ஞொ</td>
+          <td>ஞோ</td>
+          <td>ஞௌ</td>
+        </tr>
+        <tr scope="row">
+          <td>ட்</td>
+          <td>ட</td>
+          <td>டா</td>
+          <td>டி</td>
+          <td>டீ</td>
+          <td>டு</td>
+          <td>டூ</td>
+          <td>டெ</td>
+          <td>டே</td>
+          <td>டை</td>
+          <td>டொ</td>
+          <td>டோ</td>
+          <td>டௌ</td>
+        </tr>
+        <tr scope="row">
+          <td>ண்</td>
+          <td>ண</td>
+          <td>ணா</td>
+          <td>ணி</td>
+          <td>ணீ</td>
+          <td>ணு</td>
+          <td>ணூ</td>
+          <td>ணெ</td>
+          <td>ணே</td>
+          <td>ணை</td>
+          <td>ணொ</td>
+          <td>ணோ</td>
+          <td>ணௌ</td>
+        </tr>
+        <tr scope="row">
+          <td>த்</td>
+          <td>த</td>
+          <td>தா</td>
+          <td>தி</td>
+          <td>தீ</td>
+          <td>து</td>
+          <td>தூ</td>
+          <td>தெ</td>
+          <td>தே</td>
+          <td>தை</td>
+          <td>தொ</td>
+          <td>தோ</td>
+          <td>தௌ</td>
+        </tr>
+        <tr scope="row">
+          <td>ந்</td>
+          <td>ந</td>
+          <td>நா</td>
+          <td>நி</td>
+          <td>நீ</td>
+          <td>நு</td>
+          <td>நூ</td>
+          <td>நெ</td>
+          <td>நே</td>
+          <td>நை</td>
+          <td>நொ</td>
+          <td>நோ</td>
+          <td>நௌ</td>
+        </tr>
+        <tr scope="row">
+          <td>ப்</td>
+          <td>ப</td>
+          <td>பா</td>
+          <td>பி</td>
+          <td>பீ</td>
+          <td>பு</td>
+          <td>பூ</td>
+          <td>பெ</td>
+          <td>பே</td>
+          <td>பை</td>
+          <td>பொ</td>
+          <td>போ</td>
+          <td>பௌ</td>
+        </tr>
+        <tr scope="row">
+          <td>ம்</td>
+          <td>ம</td>
+          <td>மா</td>
+          <td>மி</td>
+          <td>மீ</td>
+          <td>மு</td>
+          <td>மூ</td>
+          <td>மெ</td>
+          <td>மே</td>
+          <td>மை</td>
+          <td>மொ</td>
+          <td>மோ</td>
+          <td>மௌ</td>
+        </tr>
+        <tr scope="row">
+          <td>ய்</td>
+          <td>ய</td>
+          <td>யா</td>
+          <td>யி</td>
+          <td>யீ</td>
+          <td>யு</td>
+          <td>யூ</td>
+          <td>யெ</td>
+          <td>யே</td>
+          <td>யை</td>
+          <td>யொ</td>
+          <td>யோ</td>
+          <td>யௌ</td>
+        </tr>
+        <tr scope="row">
+          <td>ர்</td>
+          <td>ர</td>
+          <td>ரா</td>
+          <td>ரி</td>
+          <td>ரீ</td>
+          <td>ரு</td>
+          <td>ரூ</td>
+          <td>ரெ</td>
+          <td>ரே</td>
+          <td>ரை</td>
+          <td>ரொ</td>
+          <td>ரோ</td>
+          <td>ரௌ</td>
+        </tr>
+        <tr scope="row">
+          <td>ல்</td>
+          <td>ல</td>
+          <td>லா</td>
+          <td>லி</td>
+          <td>லீ</td>
+          <td>லு</td>
+          <td>லூ</td>
+          <td>லெ</td>
+          <td>லே</td>
+          <td>லை</td>
+          <td>லொ</td>
+          <td>லோ</td>
+          <td>லௌ</td>
+        </tr>
+        <tr scope="row">
+          <td>வ்</td>
+          <td>வ</td>
+          <td>வா</td>
+          <td>வி</td>
+          <td>வீ</td>
+          <td>வு</td>
+          <td>வூ</td>
+          <td>வெ</td>
+          <td>வே</td>
+          <td>வை</td>
+          <td>வொ</td>
+          <td>வோ</td>
+          <td>வௌ</td>
+        </tr>
+        <tr scope="row">
+          <td>ழ்</td>
+          <td>ழ</td>
+          <td>ழா</td>
+          <td>ழி</td>
+          <td>ழீ</td>
+          <td>ழு</td>
+          <td>ழூ</td>
+          <td>ழெ</td>
+          <td>ழே</td>
+          <td>ழை</td>
+          <td>ழொ</td>
+          <td>ழோ</td>
+          <td>ழௌ</td>
+        </tr>
+        <tr scope="row">
+          <td>ள்</td>
+          <td>ள</td>
+          <td>ளா</td>
+          <td>ளி</td>
+          <td>ளீ</td>
+          <td>ளு</td>
+          <td>ளூ</td>
+          <td>ளெ</td>
+          <td>ளே</td>
+          <td>ளை</td>
+          <td>ளொ</td>
+          <td>ளோ</td>
+          <td>ளௌ</td>
+        </tr>
+        <tr scope="row">
+          <td>ற்</td>
+          <td>ற</td>
+          <td>றா</td>
+          <td>றி</td>
+          <td>றீ</td>
+          <td>று</td>
+          <td>றூ</td>
+          <td>றெ</td>
+          <td>றே</td>
+          <td>றை</td>
+          <td>றொ</td>
+          <td>றோ</td>
+          <td>றௌ</td>
+        </tr>
+        <tr scope="row">
+          <td>ன்</td>
+          <td>ன</td>
+          <td>னா</td>
+          <td>னி</td>
+          <td>னீ</td>
+          <td>னு</td>
+          <td>னூ</td>
+          <td>னெ</td>
+          <td>னே</td>
+          <td>னை</td>
+          <td>னொ</td>
+          <td>னோ</td>
+          <td>னௌ</td>
+        </tr>
+        <tr scope="row">
+          <td>ஜ்</td>
+          <td>ஜ</td>
+          <td>ஜா</td>
+          <td>ஜி</td>
+          <td>ஜீ</td>
+          <td>ஜு</td>
+          <td>ஜூ</td>
+          <td>ஜெ</td>
+          <td>ஜே</td>
+          <td>ஜை</td>
+          <td>ஜொ</td>
+          <td>ஜோ</td>
+          <td>ஜௌ</td>
+        </tr>
+        <tr scope="row">
+          <td>ஷ்</td>
+          <td>ஷ</td>
+          <td>ஷா</td>
+          <td>ஷி</td>
+          <td>ஷீ</td>
+          <td>ஷு</td>
+          <td>ஷூ</td>
+          <td>ஷெ</td>
+          <td>ஷே</td>
+          <td>ஷை</td>
+          <td>ஷொ</td>
+          <td>ஷோ</td>
+          <td>ஷௌ</td>
+        </tr>
+        <tr scope="row">
+          <td>ஸ்</td>
+          <td>ஸ</td>
+          <td>ஸா</td>
+          <td>ஸி</td>
+          <td>ஸீ</td>
+          <td>ஸு</td>
+          <td>ஸூ</td>
+          <td>ஸெ</td>
+          <td>ஸே</td>
+          <td>ஸை</td>
+          <td>ஸொ</td>
+          <td>ஸோ</td>
+          <td>ஸௌ</td>
+        </tr>
+        <tr scope="row">
+          <td>ஹ்</td>
+          <td>ஹ</td>
+          <td>ஹா</td>
+          <td>ஹி</td>
+          <td>ஹீ</td>
+          <td>ஹு</td>
+          <td>ஹூ</td>
+          <td>ஹெ</td>
+          <td>ஹே</td>
+          <td>ஹை</td>
+          <td>ஹொ</td>
+          <td>ஹோ</td>
+          <td>ஹௌ</td>
+        </tr>
+        <tr scope="row">
+          <td>ஸ்ரீ</td>
+          <td>,</td>
+        </tr>
+      </table>
+    </div>
+
+    <script src="converter.js"></script>
+  </body>
+</html>
